@@ -63,6 +63,7 @@ class eWallet(models.Model):
                 _logger.info('\n \n URL %s'%url)
                 _logger.info('\n \n params %s'%params)
                 res = requests.get(url=url, params=params)
+                _logger.info('\n \n res.text %s'%res.text)
                 if res.text:
                     result = xmltodict.parse(res.text, dict_constructor=dict)
                     if result and result.get('xml') and result.get('xml').get('result'):
