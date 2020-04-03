@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_meter_account_tree" model="ir.ui.view">
+        <field name="name">Meter Accounts</field>
+        <field name="model">meter.account</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="meter_acc_no"/>
+                <field name="name" string="Meter Account Name"/>
+                <field name="partner_id"/>
+                <field name="lot_number"/>
+                <field name="stand_number"/>
+                <field name="site_id"/>
+                <field name="business_partner_id"/>
+                <field name="meter_account_status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_meter_account_form" model="ir.ui.view">
+        <field name="name">Meter Accounts</field>
+        <field name="model">meter.account</field>
+        <field name="arch" type="xml">
+            <form string="Meter Accounts">
+                <header>
+                    <field name="meter_account_status" options="{'clickable': '1'}" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" required="1" placeholder="Meter Account Name"/>
+                        </h1>
+                    </div>
+                    <group col="4">
+                        <field name="partner_id"/>
+                        <field name="lot_number"/>
+                        <field name="meter_acc_no"/>
+                        <field name="stand_number"/>
+                        <field name="region"/>
+                        <field name="utility_type"/>
+                        <field name="activation_date"/>
+                        <field name="business_partner_id"/>
+                        <field name="eid"/>
+                        <field name="site_id"/>
+                        <field name="financial_year_start"/>
+                        <field name="mdms_server"/>
+                        <field name="billing_period"/>
+                        <field name="ewallet_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Meters">
+                            <field name="meters_ids"/>
+                        </page>
+                        <page string="Tarrifs">
+                            <field name="tarrifs_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_meter_account" model="ir.actions.act_window">
+        <field name="name">Meter Accounts</field>
+        <field name="res_model">meter.account</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_meter_account" name="Meter Accounts" parent="eldo_customization.main_menu_meters" action="eldo_customization.action_meter_account" sequence="1"/>
+
+</odoo>

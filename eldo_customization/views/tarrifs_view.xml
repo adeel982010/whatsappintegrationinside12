@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_tarrifs_tree" model="ir.ui.view">
+        <field name="name">Tarrifs</field>
+        <field name="model">tarrifs</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="default"/>
+                <field name="notified_demand"/>
+                <field name="start_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_tarrifs_form" model="ir.ui.view">
+        <field name="name">Tarrifs</field>
+        <field name="model">tarrifs</field>
+        <field name="arch" type="xml">
+            <form string="Tarrifs">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" required="1" placeholder="Tarrif Description"/>
+                        </h1>
+                    </div>
+                    <group col="4">
+                        <field name="start_date"/>
+                        <field name="default"/>
+                        <field name="notified_demand"/>
+                    </group>
+                    <field name="meter_account_number_ids"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tarrifs" model="ir.actions.act_window">
+        <field name="name">Tarrifs</field>
+        <field name="res_model">tarrifs</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_tarrifs" name="Tarrifs" parent="eldo_customization.main_menu_meters" action="eldo_customization.action_tarrifs" sequence="3"/>
+
+</odoo>

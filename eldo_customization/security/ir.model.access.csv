@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_contract,access_project_contract,model_project_contract,,1,1,1,1
+access_properties,access_properties,model_properties,,1,1,1,1
+access_e_wallet,access_e_wallet,model_e_wallet,,1,1,1,1
+access_meter_account,access_meter_account,model_meter_account,,1,1,1,1
+access_meters,access_meters,model_meters,,1,1,1,1
+access_tarrifs,access_tarrifs,model_tarrifs,,1,1,1,1
+access_mdms_server,access_mdms_server,model_mdms_server,,1,1,1,1

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mdms_server_tree" model="ir.ui.view">
+        <field name="name">MDMS Server</field>
+        <field name="model">mdms.server</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="url"/>
+                <field name="login"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_mdms_server_form" model="ir.ui.view">
+        <field name="name">MDMS Server</field>
+        <field name="model">mdms.server</field>
+        <field name="arch" type="xml">
+            <form string="MDMS Server">
+                <sheet>
+                    <group col="4">
+                        <field name="name" required="1"/>
+                        <field name="url" required="1"/>
+                        <field name="login" required="1"/>
+                        <field name="password" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mdms_server" model="ir.actions.act_window">
+        <field name="name">MDMS Server</field>
+        <field name="res_model">mdms.server</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_mdms_server" name="MDMS Server" parent="eldo_customization.main_menu_meters" action="eldo_customization.action_mdms_server" sequence="6"/>
+
+</odoo>

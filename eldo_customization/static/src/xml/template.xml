@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template">
+
+    <div t-name="BalanceHistoryView">
+        <div class="container balance_history_container">
+            <div class="main-header">
+                <div class="row header">
+                    <div class="col">
+                        <div class="col">
+                            <b>Start Date</b>
+                            <input type="date" class="start_date"/>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="col">
+                            <b>End Date</b>
+                            <input type="date" class="end_date"/>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <button class="btn search_history">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="load-body">
+                <div>
+                    <table>
+                        <tr>
+                            <th style="width: 70%;">
+                                <h3>Balance:</h3>
+                            </th>
+                            <td class="cbal"/>
+                        </tr>
+                    </table>
+                </div>
+                <div style="margin-top: 20px;">
+                    <h3>Balance History</h3>
+                    <div class="main-body"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div t-name="HistoryRowView">
+        <t t-foreach="history_lines" t-as="history">
+            <div class="row history_main_raw">
+                <div class="col history_raw">
+                    <table>
+                        <tr>
+                            <th style="width: 70%;">
+                                Date:
+                            </th>
+                            <td>
+                                <t t-esc="moment(history.tdate).format('MMMM Do YYYY, hh:mm:ss A')"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Amount:
+                            </th>
+                            <td>
+                                <div class="history-border">
+                                    R <t t-esc="history.amt/100000"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Type:
+                            </th>
+                            <td>
+                                <div class="history-border">
+                                    <t t-if="history.tpe == 'I'">
+                                        Deduction
+                                    </t>
+                                    <t t-elif="history.tpe == 'R'">
+                                        Top-up
+                                    </t>
+                                    <t t-elif="history.tpe == 'C'">
+                                        Credit Note
+                                    </t>
+                                    <t t-elif="history.tpe == 'D'">
+                                        Debit Note
+                                    </t>
+                                    <t t-else="">
+                                        Other
+                                    </t>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </div>
+
+</templates>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ewallet_tree" model="ir.ui.view">
+        <field name="name">eWallet</field>
+        <field name="model">e.wallet</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="payment_reference"/>
+                <field name="action"/>
+                <field name="create_date"/>
+                <field name="has_prepaid"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ewallet_form" model="ir.ui.view">
+        <field name="name">eWallet</field>
+        <field name="model">e.wallet</field>
+        <field name="arch" type="xml">
+            <form string="eWallet">
+                <header>
+                    <button string="Current Balance" name="current_balance" type="object" 
+                        class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" required="1"/>
+                        </h1>
+                    </div>
+                    <group col="4">
+                        <field name="payment_reference"/>
+                        <field name="opening_date" required="1"/>
+                        <field name="action"/>
+                        <field name="opening_balance"/>
+                        <field name="eid" required="1"/>
+                        <field name="has_prepaid"/>
+                        <field name="mdms_server_id" required="1"/>
+                    </group>
+                    <group>
+                        <field name="meter_account_ids" widget="one2many_list" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ewallet" model="ir.actions.act_window">
+        <field name="name">eWallet</field>
+        <field name="res_model">e.wallet</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="main_menu_meters" name="Meters" web_icon="eldo_customization,static/description/icon.png"/>
+
+    <menuitem id="menu_ewallet" name="eWallet" parent="eldo_customization.main_menu_meters" action="eldo_customization.action_ewallet" sequence="5"/>
+
+</odoo>

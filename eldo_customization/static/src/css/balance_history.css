@@ -1,0 +1,37 @@
+.balance_history_container .row.header{
+	border: 1px solid gainsboro;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.balance_history_container .main-body{
+    margin-top: 20px;
+}
+
+.balance_history_container .main-body .history_raw{
+    background: #eee;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.balance_history_container .main-body .history_main_raw{
+	margin-top: 10px;
+}
+
+.balance_history_container .main-body .history_raw .history-border{
+    border: 1px solid;
+	border-radius: 50px;
+	background: #808080;
+	color: white;
+	padding: 1px;
+	text-align: center;
+}
+
+.balance_history_container .history-border{
+    border: 1px solid;
+	border-radius: 50px;
+	background: #808080;
+	color: white;
+	padding: 10px;
+	text-align: center;
+}
