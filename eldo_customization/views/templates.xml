@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_open_balance_history_view" model="ir.actions.client">
+        <field name="name">Balance History</field>
+        <field name="tag">open_balance_history</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+    </record>
+
+     <template id="assets_backend" name="eldo_customization assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/eldo_customization/static/src/css/balance_history.css"/>
+            <script type="text/javascript" src="/eldo_customization/static/src/js/balance_history.js"/>
+        </xpath>
+    </template>
+
+</odoo>
