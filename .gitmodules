@@ -1,0 +1,4 @@
+[submodule "OCA/web/web_widget_color"]
+	path = OCA/web/web_widget_color
+	url = git@github.com:OCA/web.git
+	branch = 12.0
