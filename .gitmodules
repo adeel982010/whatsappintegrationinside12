@@ -1,0 +1,9 @@
+[submodule "OCA/web/web_widget_color"]
+	path = OCA/web/web_widget_color
+	url = git@github.com:OCA/web.git
+	branch = 12.0
+
+[submodule "muk-it/muk_web/muk_web_theme"]
+	path = muk-it/muk_web/muk_web_theme
+	url = git@github.com:muk-it/muk_web.git
+	branch = 12.0
