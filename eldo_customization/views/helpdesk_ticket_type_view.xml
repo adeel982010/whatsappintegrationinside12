@@ -20,6 +20,9 @@
             <field name="ticket_type_id" position="attributes">
                 <attribute name="domain">[('helpdesk_team_ids', '=', team_id)]</attribute>
             </field>
+            <field name="team_id" position="after">
+                <field name="ticket_type_id" domain="[('helpdesk_team_ids', '=', team_id)]"/>
+            </field>
         </field>
     </record>
 
