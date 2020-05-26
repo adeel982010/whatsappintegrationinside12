@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="helpdesk_ticket_type_view_tree_inherited_teams" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.type.tree</field>
+        <field name="model">helpdesk.ticket.type</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_type_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="helpdesk_team_ids" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_view_form_inherited_teams" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+        <field name="arch" type="xml">
+            <field name="ticket_type_id" position="attributes">
+                <attribute name="domain">[('helpdesk_team_ids', '=', team_id)]</attribute>
+            </field>
+            <field name="team_id" position="after">
+                <field name="ticket_type_id" domain="[('helpdesk_team_ids', '=', team_id)]"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -51,7 +51,7 @@ class eWallet(models.Model):
         if self and start_date and end_date:
             start_date += ' 00:00:00'
             end_date += ' 23:59:59'
-            url = self.mdms_server_id.url
+            url = self.mdms_server_id.url + '/getLedger.jsp'
             params = {
                 'eid': self.eid,
                 'startdate': start_date,
