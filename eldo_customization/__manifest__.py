@@ -11,6 +11,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/mail_data.xml',
         'views/templates.xml',
         'views/ewallet_view.xml',
         'views/meter_account_view.xml',

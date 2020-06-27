@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="message_notification_email"
+			inherit_id="mail.message_notification_email">
+			<xpath expr="//div/p" position="replace">
+<p style="color: #555555; margin-top:32px;">
+Sent
+<span t-if="company.name">
+by
+<a t-if="website_url" t-att-href="website_url" style="text-decoration:none; color: #875A7B;">
+    <span>ELDO</span>
+</a>
+<span t-if="not website_url">ELDO</span>
+</span>.
+</p>
+			</xpath>
+		</template>
+	</data>
+</odoo>
