@@ -26,20 +26,19 @@ class sh_send_whatsapp_number(models.TransientModel):
                 sh_message=""
                 if self.message:
                     sh_message =  str(self.message).replace('*','').replace('_','').replace('%0A','<br/>').replace('%20',' ')
-                if self.crm_lead_id and self.crm_lead_id.company_id.crm_lead_display_in_message:  
+                if self.crm_lead_id and self.crm_lead_id.company_id.crm_lead_display_in_message:
                     self.env['mail.message'].create({
-                                                    'partner_ids':[(6,0,rec.partner_ids)] or False,
+                                                    'partner_ids':[(4, rec.partner_ids.id)] or False,
                                                     'model':'res.partner',
-                                                    'res_id':rec.partner_ids,
-                                                    'author_id':self.env.user.partner_id.id,
-                                                    'body':sh_message or False,
-                                                    'message_type':'comment',
+                                                    'res_id':rec.partner_ids.id,
+                                                     'author_id':self.env.user.partner_id.id,
+                                                     'body':sh_message,
+                                                    'message_type':'notification'
                                                 })
                 return {
                     'type': 'ir.actions.act_url',
                     'url': "https://web.whatsapp.com/send?l=&phone="+rec.whatsapp_mobile+"&text=" + self.message,
-                    'target': 'new',
-                    'res_id': self.id,
+                    'target': 'new'
                 }
                     
         
