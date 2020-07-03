@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+	    <record id="whatsapp_template_form" model="ir.ui.view">
+	        <field name="name">whatsapp.template.form</field>
+	        <field name="model">whatsapp.template</field>
+	        <field name="arch" type="xml">
+	            <form string="Template">
+	                <sheet>
+	                    <group>
+	                        <field name="name"/>
+	                        <field name="body"/>
+	                    </group>
+	                    <group>
+	                        <p style="margin-left:160px;">
+	                        	<strong>Note:</strong><br/>
+	                        	1) Use  *text*  to make text bold.<br/>
+								2) Use  _text_  to make text italic.<br/>
+								3) Use %0A after/before Text if you want to add blank line.<br/>
+								4) use %20 after/before any Text if you want to give space.<br/>
+								5) go to users => preferences to add signature. 
+							</p>
+	                    </group>
+	                </sheet>
+	            </form>
+	        </field>
+	    </record>
+
+	    <record id="whatsapp_template_tree" model="ir.ui.view">
+	        <field name="name">whatsapp.template.tree</field>
+	        <field name="model">whatsapp.template</field>
+	        <field name="arch" type="xml">
+	        	<tree string="Templates">
+	        		<field name="name" />
+	        		<field name="body" />
+	        	</tree>
+	    	</field>
+    	</record>
+
+	    <record id="whatsapp_template_action" model="ir.actions.act_window">
+	        <field name="name">Whatsapp Template</field>
+	        <field name="res_model">whatsapp.template</field>
+	        <field name="view_type">form</field>
+	        <field name="view_mode">tree,form</field>
+	    </record>
+
+        <menuitem id="menu_subwhatsapp_number" name="Whatsapp Template" 
+        parent="sh_whatsapp_integration.menu_whatsapp_number" sequence="2" 
+        groups="sh_whatsapp_integration.group_helpdesk_whatsapp_msg_feature"
+        action="whatsapp_template_action"/>
+    </data>
+</odoo>

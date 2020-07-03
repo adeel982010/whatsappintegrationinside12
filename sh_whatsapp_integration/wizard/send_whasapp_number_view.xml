@@ -10,8 +10,10 @@
 	                    <group>
 	                    	<field name="partner_ids"/>
 	                        <field name="whatsapp_mobile"/>
+	                        <field name="template_id" attrs="{'invisible': [('ticket_id', '=', False)]}"/>
 	                        <field name="message"/>
 	                        <field name="crm_lead_id" invisible="1"/>
+	                        <field name="ticket_id" invisible="1" />
 	                    </group>
 	                    <group>
 	                        <p style="margin-left:160px;">
@@ -43,12 +45,15 @@
 	        <field name="target">new</field>
 	    </record>
 	    
-	     <menuitem name="Send Whatsapp"
+	    <menuitem name="Send Whatsapp"
             id="menu_whatsapp_number"
             sequence="40" groups="sh_whatsapp_integration.group_send_whatsapp_quick"/>
 
-        <menuitem id="menu_subwhatsapp_number" name="Send Whatsapp" parent="menu_whatsapp_number" sequence="2" groups="sh_whatsapp_integration.group_send_whatsapp_quick"/>
-        <menuitem id="submenu_whatsapp_number" name="Send Whatsapp" parent="menu_subwhatsapp_number" action="sh_whatsapp_integration_send_whatsapp_number_action" sequence="3" groups="sh_whatsapp_integration.group_send_whatsapp_quick"/>
+<!--         <menuitem id="menu_subwhatsapp_number" name="Send Whatsapp" parent="menu_whatsapp_number" sequence="2" groups="sh_whatsapp_integration.group_send_whatsapp_quick"/> -->
+        <menuitem id="submenu_whatsapp_number" name="Send Whatsapp" 
+        parent="menu_whatsapp_number" 
+        action="sh_whatsapp_integration_send_whatsapp_number_action" sequence="3" 
+        groups="sh_whatsapp_integration.group_send_whatsapp_quick"/>
     </data>
 </odoo>
     

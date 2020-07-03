@@ -10,3 +10,4 @@ from . import stock_picking_inherit
 from . import vendor_invoice_inherit
 from . import res_config_settings
 from . import account_payment_inherit
+from . import helpdesk_ticket

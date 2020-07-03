@@ -23,6 +23,7 @@ Using this module you can send Quotations, Sale Order, Invoices, Bills, RFQs, Pu
     "application" : True,
     "data" : [
             'security/whatsapp_security.xml',
+            "security/ir.model.access.csv",
             "wizard/send_whatsapp_message_view.xml",
             "views/res_partner_views.xml",
             "wizard/send_whasapp_number_view.xml",
@@ -36,6 +37,8 @@ Using this module you can send Quotations, Sale Order, Invoices, Bills, RFQs, Pu
             "views/res_config_settings.xml",
             "views/res_users_inherit_view.xml",
             "views/account_paymnet_inherit_view.xml",
+            "views/helpdesk_ticket_views.xml",
+            "views/whatsapp_template_views.xml",
      
             ],            
     "images": ["static/description/background.png",],              
