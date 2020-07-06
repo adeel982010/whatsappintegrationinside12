@@ -23,3 +23,8 @@ class HelpdeskTicket(models.Model):
         ticket.update({'stage_id': self.env.ref('eldo_customization.stage_new_email').id})
         return ticket
 
+    @api.multi
+    def message_update(self, msg, update_vals):
+        res = super(HelpdeskTicket, self).message_update(msg=msg, update_vals=update_vals)
+        self.write({'stage_id': self.env.ref('eldo_customization.stage_new_email').id})
+        return res
