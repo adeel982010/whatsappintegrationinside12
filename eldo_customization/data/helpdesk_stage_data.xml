@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="stage_new_email" model="helpdesk.stage">
+        <field name="name">New Email</field>
+        <field name="sequence">1</field>
+    </record>
+
+</odoo>

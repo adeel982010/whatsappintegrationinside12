@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   	
+   	<record id="helpdesk_ticket_view_form_inherit"
+		model="ir.ui.view">
+		<field name="name">helpdesk.ticket.form</field>
+		<field name="model">helpdesk.ticket</field>
+		<field name="inherit_id"
+			ref="helpdesk.helpdesk_ticket_view_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='partner_email']" position="after">
+				<label for="mobile"/>
+				<div class="o_row">
+                    <field name="mobile" widget="phone"/>
+                    <button
+                        type="action"
+                        name="%(sh_whatsapp_integration.sh_whatsapp_integration_send_whatsapp_number_action)d"
+                        class="btn-sm btn-link mb4 fa fa-whatsapp"
+                        aria-label="Whatsapp Number"
+                        title="Whatsapp Number"
+                        attrs="{'invisible':[('mobile', '=', False)]}"
+                        context="{'default_whatsapp_mobile': mobile,
+                        		  'default_ticket_id':active_id,
+                        		  'default_partner_ids': partner_id}"  
+                        groups="sh_whatsapp_integration.group_helpdesk_whatsapp_msg_feature"                        
+                    />
+                   </div>
+			</xpath>
+		</field>
+	</record>
+</odoo>
