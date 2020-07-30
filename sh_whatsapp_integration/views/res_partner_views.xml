@@ -19,6 +19,12 @@
                         groups="sh_whatsapp_integration.group_send_whatsapp_quick"                         
                     />
             </xpath>
+            <xpath expr="//field[@name='mobile']" position="attributes">
+				<attribute name="required">1</attribute>
+			</xpath>
+			<xpath expr="//field[@name='email']" position="attributes">
+				<attribute name="required">1</attribute>
+			</xpath>
             <!-- <field name="vat" position="after">
             	<field name="due_payment"/>
             </field> -->
