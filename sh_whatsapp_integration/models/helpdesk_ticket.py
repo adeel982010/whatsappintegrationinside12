@@ -5,7 +5,7 @@ from odoo import models, fields, api
 class HelpdeskTicket(models.Model):
     _inherit = 'helpdesk.ticket'
    
-    mobile = fields.Char(string="Mobile")
+    mobile = fields.Char(string="Mobile", related="partner_id.mobile")
 
 class HelpdeskWhatsappTemplate(models.Model):
     _name = 'whatsapp.template'
