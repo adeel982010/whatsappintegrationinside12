@@ -19,9 +19,6 @@
                         aria-label="Whatsapp Number"
                         title="Whatsapp Number"
                         attrs="{'invisible':[('mobile', '=', False)]}"
-                        context="{'default_whatsapp_mobile': mobile,
-                        		  'default_ticket_id':active_id,
-                        		  'default_partner_ids': partner_id}"  
                         groups="sh_whatsapp_integration.group_helpdesk_whatsapp_msg_feature"                        
                     />
                    </div>

@@ -15,6 +15,16 @@ class sh_send_whatsapp_number(models.TransientModel):
     ticket_id = fields.Many2one('helpdesk.ticket', string="Ticket")
     template_id = fields.Many2one('whatsapp.template',string="Template")
     
+    @api.model
+    def default_get(self, fields):
+        res = super(sh_send_whatsapp_number, self).default_get(fields)
+        if self._context.get('active_model') == 'helpdesk.ticket':
+            ticket_id = self.env['helpdesk.ticket'].browse(self._context.get('active_id'))
+            res['ticket_id'] = self._context.get('active_id')
+            res['whatsapp_mobile'] = ticket_id.mobile
+            res['partner_ids'] = ticket_id.partner_id.id
+        return res
+    
     @api.onchange('partner_ids')
     def onchange_partner(self):
         if self.partner_ids:
